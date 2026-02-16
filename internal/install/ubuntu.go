@@ -19,5 +19,5 @@ func (u *UbuntuInstaller) Validate(config Config) error {
 }
 
 func (u *UbuntuInstaller) Install(config Config) error {
-	return fmt.Errorf("not implemented yet")
+	return fmt.Errorf("not implemented")
 }

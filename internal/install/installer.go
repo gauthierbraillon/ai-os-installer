@@ -1,9 +1,9 @@
 package install
 
 type Config struct {
-	Version string
-	User    UserConfig
-	System  SystemConfig
+	Version  string
+	User     UserConfig
+	System   SystemConfig
 	Packages PackageConfig
 }
 

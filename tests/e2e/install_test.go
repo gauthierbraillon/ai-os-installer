@@ -1,3 +1,4 @@
+//go:build e2e
 // +build e2e
 
 package e2e
@@ -38,6 +39,6 @@ func TestUbuntuInstall_E2E(t *testing.T) {
 			t.Fatalf("validation failed: %v", err)
 		}
 
-		t.Skip("Installation not implemented yet - this is a placeholder for E2E test")
+		t.Skip("not implemented")
 	})
 }
