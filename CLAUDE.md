@@ -262,9 +262,18 @@ Total: ~9 minutes
 **Code Style:**
 - No comments (code should be self-explanatory)
 - Functional programming preferred (pure functions, immutable data)
-- Type hints for all functions (Python 3.11+ typing)
+- Interfaces for testability (dependency injection)
 - No unnecessary abstractions
-- PEP 8 compliant
+- Follow standard Go conventions (gofmt, golangci-lint)
+- Table-driven tests where appropriate
+
+**Documentation Philosophy:**
+- Keep docs minimal - every line needs maintenance
+- Avoid hard data (sizes, timings) that can become outdated
+- Don't duplicate information across files
+- CLAUDE.md is single source of truth for development workflow
+- README is for users, not developers
+- Comments in code only when logic is truly unclear (rare)
 
 ## Architecture
 
