@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "user": {
+    "name": "testuser",
+    "full_name": "Test User",
+    "shell": "bash"
+  },
+  "system": {
+    "hostname": "test-machine",
+    "timezone": "UTC",
+    "locale": "en_US.UTF-8"
+  },
+  "packages": {
+    "base": ["git", "curl", "vim"],
+    "dev": ["python3", "nodejs"],
+    "desktop": []
+  }
+}
