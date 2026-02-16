@@ -91,19 +91,19 @@ See [CLAUDE.md](./CLAUDE.md) for guidelines.
 - [CLAUDE.md](./CLAUDE.md) - Development workflow
 - [ARCHITECTURE.md](./ARCHITECTURE.md) - Technical architecture
 
-## Security
+## Issues & Support
 
-Report security issues privately to gbraillon@gmail.com
+Found a bug or have a question? [Open an issue](https://github.com/gauthierbraillon/ai-os-installer/issues)
+
+For security vulnerabilities, please open a private security advisory.
 
 ## License
 
 MIT
 
-## Contact
+## Author
 
-- **Author:** Gauthier Braillon
-- **GitHub:** [@gauthierbraillon](https://github.com/gauthierbraillon)
-- **Email:** gbraillon@gmail.com
+Gauthier Braillon - [@gauthierbraillon](https://github.com/gauthierbraillon)
 
 ---
 
