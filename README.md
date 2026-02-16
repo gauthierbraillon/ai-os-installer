@@ -30,15 +30,6 @@ AI: Perfect. Installing Ubuntu now...
 
 ⚠️ **MVP in development** - Not ready for production use yet.
 
-### Roadmap
-
-- [x] Architecture design
-- [x] Development workflow
-- [ ] CD pipeline setup
-- [ ] Conversation engine
-- [ ] Ubuntu installer integration
-- [ ] First working demo
-
 ## Installation
 
 Once MVP is ready:
