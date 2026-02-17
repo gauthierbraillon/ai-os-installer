@@ -58,8 +58,6 @@ logs/
 .DS_Store
 Thumbs.db
 
-# Docker
-.dockerignore
 
 # VM images (large files)
 *.qcow2
