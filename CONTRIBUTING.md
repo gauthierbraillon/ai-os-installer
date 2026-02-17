@@ -5,15 +5,15 @@
 ```bash
 git clone https://github.com/gauthierbraillon/ai-os-installer.git
 cd ai-os-installer
-export ANTHROPIC_API_KEY=sk-...
+export ANTHROPIC_API_KEY=<your-key>
 go test ./...
 ```
 
-Requirements: Go 1.22+, Docker (for integration tests), QEMU (for E2E tests).
+Requirements: Go 1.22+, Docker (integration tests), QEMU (E2E tests).
 
 ## Workflow: RED → GREEN → REFACTOR → DEPLOY
 
-Every change — bug fix, feature, refactor — follows this cycle. No exceptions.
+Every change follows this cycle. No exceptions.
 
 **1. RED** — write a failing test that describes the required behavior
 
@@ -52,7 +52,7 @@ See [CLAUDE.md](CLAUDE.md) for the full development guide.
 | E2E smoke | `tests/e2e/` | After deploy — failure triggers rollback |
 | Validation | `tests/validation/` | Static checks (pipeline config, security) |
 
-**Mock only external systems** (Claude API, QEMU, filesystem). Never mock our own code.
+Mock only external systems (Claude API, QEMU, filesystem). Never mock our own code.
 
 ## Commit messages
 
@@ -66,20 +66,8 @@ test: add validation for missing hostname config
 docs: update architecture diagram
 ```
 
-One logical change per commit. Keep commits small enough to revert independently.
+One logical change per commit.
 
 ## Pull requests
 
-PRs are welcome. Keep them small and focused. Each PR should:
-
-- Have a clear problem statement
-- Include tests (RED was written first)
-- Pass the full CI pipeline before requesting review
-
-## Reporting issues
-
-Open an issue on GitHub describing:
-- What you expected to happen
-- What actually happened
-- Steps to reproduce
-- Environment (OS, Go version, Docker version)
+Keep PRs small and focused. Each PR should pass the full CI pipeline and include tests written before the implementation (RED was written first).
