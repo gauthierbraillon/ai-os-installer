@@ -28,15 +28,13 @@ AI: Perfect. Installing Ubuntu now...
 
 ## Status
 
-⚠️ **MVP in development** - Not ready for production use yet.
+⚠️ **MVP in development** — not ready for production use yet.
 
 ## Installation
 
-Once MVP is ready:
-
 ```bash
 docker run -it --privileged \
-  -e ANTHROPIC_API_KEY=your_key_here \
+  -e ANTHROPIC_API_KEY=<your-key> \
   ghcr.io/gauthierbraillon/ai-os-installer:latest
 ```
 
@@ -58,44 +56,10 @@ Install Executor
 
 See [ARCHITECTURE.md](./ARCHITECTURE.md) for details.
 
-## Testing
-
-Following ATDD (Acceptance Test-Driven Development):
-
-```bash
-go test -v ./...
-```
-
-See [CLAUDE.md](./CLAUDE.md) for development workflow.
-
 ## Contributing
 
-Contributions welcome! This project follows:
-- ATDD/TDD workflow
-- Continuous delivery
-- Trunk-based development
-
-See [CLAUDE.md](./CLAUDE.md) for guidelines.
-
-## Documentation
-
-- [CLAUDE.md](./CLAUDE.md) - Development workflow
-- [ARCHITECTURE.md](./ARCHITECTURE.md) - Technical architecture
-
-## Issues & Support
-
-Found a bug or have a question? [Open an issue](https://github.com/gauthierbraillon/ai-os-installer/issues)
-
-For security vulnerabilities, please open a private security advisory.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the development workflow and contribution guide.
 
 ## License
 
 MIT
-
-## Author
-
-Gauthier Braillon - [@gauthierbraillon](https://github.com/gauthierbraillon)
-
----
-
-⭐ Star this repo if you think conversational OS installation is the future!
