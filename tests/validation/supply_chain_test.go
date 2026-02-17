@@ -12,12 +12,22 @@ var mutableTagPattern = regexp.MustCompile(`uses:\s+\S+@(v\d[\w.]*)$`)
 var dockerFromPattern = regexp.MustCompile(`^FROM\s+(\S+)`)
 var digestPattern = regexp.MustCompile(`@sha256:[a-f0-9]{64}`)
 
-func TestSC001_GitHubActionsArePinnedToCommitSHAs(t *testing.T) {
-	f, err := os.Open("../../.github/workflows/ci-cd.yml")
+func openFile(t *testing.T, path string) *os.File {
+	t.Helper()
+	f, err := os.Open(path)
 	if err != nil {
-		t.Fatalf("cannot open ci-cd.yml: %v", err)
+		t.Fatalf("cannot open %s: %v", path, err)
 	}
-	defer f.Close()
+	t.Cleanup(func() {
+		if err := f.Close(); err != nil {
+			t.Errorf("failed to close %s: %v", path, err)
+		}
+	})
+	return f
+}
+
+func TestSC001_GitHubActionsArePinnedToCommitSHAs(t *testing.T) {
+	f := openFile(t, "../../.github/workflows/ci-cd.yml")
 
 	lineNum := 0
 	scanner := bufio.NewScanner(f)
@@ -31,11 +41,7 @@ func TestSC001_GitHubActionsArePinnedToCommitSHAs(t *testing.T) {
 }
 
 func TestSC002_DockerfileBaseImagesArePinnedToDigests(t *testing.T) {
-	f, err := os.Open("../../docker/Dockerfile")
-	if err != nil {
-		t.Fatalf("cannot open Dockerfile: %v", err)
-	}
-	defer f.Close()
+	f := openFile(t, "../../docker/Dockerfile")
 
 	lineNum := 0
 	scanner := bufio.NewScanner(f)
@@ -47,10 +53,7 @@ func TestSC002_DockerfileBaseImagesArePinnedToDigests(t *testing.T) {
 			continue
 		}
 		image := m[1]
-		if image == "scratch" {
-			continue
-		}
-		if strings.HasPrefix(image, "--") {
+		if image == "scratch" || strings.HasPrefix(image, "--") {
 			continue
 		}
 		if !digestPattern.MatchString(image) {
@@ -66,11 +69,7 @@ func TestSC003_DockerignoreExists(t *testing.T) {
 }
 
 func TestSC004_GolangciLintVersionIsPinned(t *testing.T) {
-	f, err := os.Open("../../.github/workflows/ci-cd.yml")
-	if err != nil {
-		t.Fatalf("cannot open ci-cd.yml: %v", err)
-	}
-	defer f.Close()
+	f := openFile(t, "../../.github/workflows/ci-cd.yml")
 
 	scanner := bufio.NewScanner(f)
 	for scanner.Scan() {
