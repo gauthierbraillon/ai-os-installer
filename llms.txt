@@ -4,17 +4,15 @@
 
 ## What it does
 
-AI OS Installer replaces the traditional Linux installation wizard with a conversation.
-Instead of navigating menus, answering cryptic questions about partitioning or locales,
-or reading documentation, you describe your use case in plain language and the AI
+Replaces the traditional Linux installation wizard with a conversation. Instead of navigating
+menus or reading documentation, you describe your use case in plain language and the AI
 configures and installs Ubuntu 24.04 LTS for you.
 
 ## Who it is for
 
 - Developers setting up a new Linux workstation
-- DevOps engineers automating lab or VM provisioning
+- DevOps engineers automating VM provisioning
 - Linux beginners intimidated by traditional installers
-- Anyone who wants a fully configured, opinionated Ubuntu setup without manual steps
 
 ## How to use it
 
@@ -24,12 +22,10 @@ docker run -it --privileged \
   ghcr.io/gauthierbraillon/ai-os-installer:latest
 ```
 
-Then just talk to it:
-
 ```
 AI: Hi! What will you mainly use this Linux system for?
 You: Web development and some gaming
-AI: Got it. I'll set up Node, Docker, VS Code, Steam, and configure GPU drivers.
+AI: I'll set up Node, Docker, VS Code, Steam, and configure GPU drivers.
     Simple setup or detailed customization?
 You: Simple
 AI: Installing now...
@@ -38,36 +34,21 @@ AI: Installing now...
 ## Technology
 
 - Language: Go 1.22
-- AI: Claude API (Anthropic) — conversational requirement gathering and configuration
-- Installation target: Ubuntu 24.04 LTS
+- AI: Claude API (Anthropic)
+- Target OS: Ubuntu 24.04 LTS
 - VM backend: QEMU
-- Distribution: Docker container (no installation required to run the installer itself)
+- Distribution: Docker container
 
 ## Key capabilities
 
 - Natural language requirement gathering
-- Automatic package selection based on use case (web dev, gaming, data science, etc.)
+- Automatic package selection based on use case
 - Generates Ubuntu preseed / cloud-init config from conversation
 - Runs unattended installation inside a QEMU VM
-- Post-install configuration (packages, shell, dotfiles)
-
-## Architecture
-
-```
-User Terminal
-     ↓
-Conversation Manager  (collects requirements, manages state)
-     ↓
-AI Engine             (Claude API, prompt engineering, response parsing)
-     ↓
-Config Generator      (conversation → install config JSON)
-     ↓
-Install Executor      (runs installation in VM via QEMU)
-```
 
 ## Source
 
 - Repository: https://github.com/gauthierbraillon/ai-os-installer
 - Docker image: ghcr.io/gauthierbraillon/ai-os-installer
 - License: MIT
-- Status: MVP — Ubuntu 24.04 LTS in VM, Claude API backend
+- Status: MVP
