@@ -26,6 +26,10 @@ You: Simple
 AI: Perfect. Installing Ubuntu now...
 ```
 
+## Engineering Notes
+
+The pipeline follows [Minimum CD](https://minimumcd.org/) principles: every push to main runs lint → unit tests → integration tests → Docker build → E2E smoke tests, and only promotes to `:latest` after all gates pass. Supply chain security is enforced via pinned action SHAs and digest-pinned base images. Tests are named as acceptance criteria (e.g. `AC101`) — they serve as the executable specification, replacing a separate requirements document.
+
 ## Status
 
 ⚠️ **MVP in development** — not ready for production use yet.
